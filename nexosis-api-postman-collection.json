@@ -1,0 +1,1051 @@
+{
+  "info": {
+    "name": "Nexosis API",
+    "_postman_id": "09b394fa-245c-10f9-783f-9cccf99c8899",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "data",
+      "description": "Folder for data",
+      "item": [
+        {
+          "name": "/data?partialName=Location&page={{page}}&pageSize={{pageSize}}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/data?partialName=Location&page={{page}}&pageSize={{pageSize}}",
+              "host": [ "{{base-url}}" ],
+              "path": [ "data" ],
+              "query": []
+            },
+            "description": "#### Gets the list of datasets that have been uploaded\r\nDatasets can be uploaded by posting to any of the following endpoints:\r\n* `/data/{dataSetName}`\r\n* `/sessions/impact`\r\n* `/sessions/forecast`\r\n<para>\r\nSee also <a href=\"http://docs.nexosis.com/guides/retrievingdata\" target=\"_blank\">http://docs.nexosis.com/guides/retrievingdata</a> for more\r\ndetails about how to retrieve your data.\r\n</para>"
+          },
+          "response": []
+        },
+        {
+          "name": "/data/:dataSetName?startDate=01/01/2013 00:00:00&endDate=01/05/2013 00:00:00&page=0&pageSize=10&include=sales",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json, text/csv"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/data/:dataSetName?startDate=01/01/2013 00:00:00&endDate=01/05/2013 00:00:00&page=0&pageSize=10&include=sales",
+              "host": [ "{{base-url}}" ],
+              "path": [ "data", ":dataSetName" ],
+              "query": [],
+              "variable": [
+                {
+                  "value": "Location-A",
+                  "id": "dataSetName"
+                }
+              ]
+            },
+            "description": "See also <a href=\"http://docs.nexosis.com/guides/retrievingdata\" target=\"_blank\">http://docs.nexosis.com/guides/retrievingdata</a> for more\r\ndetails about how to retrieve your data."
+          },
+          "response": []
+        },
+        {
+          "name": "/data/:dataSetName",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base-url}}/data/:dataSetName",
+              "host": [ "{{base-url}}" ],
+              "path": [ "data", ":dataSetName" ],
+              "variable": [
+                {
+                  "value": "Location-A",
+                  "id": "dataSetName"
+                }
+              ]
+            },
+            "description": "#### Adds data to a particular dataset\r\nThis operation creates a new dataset with the specified rows, or if the dataset already exists, adds rows to the dataset.\r\nIf the specified data contains records with timestamps that already exist in the dataset, those records will be overwritten.\r\n<br />\r\nDataset rows can be sent in the body as either application/json or text/csv (CRLF line endings only).\r\n<para>\r\nSee also <a href=\"http://docs.nexosis.com/guides/sendingdata\" target=\"_blank\">http://docs.nexosis.com/guides/sendingdata</a> for more\r\ndetails about how to upload your data.  Read <a href=\"http://docs.nexosis.com/guides/importingdata\">here</a> to see how you can upload from S3.\r\n</para>"
+          },
+          "response": []
+        },
+        {
+          "name": "/data/:dataSetName?startDate=01/01/2013 00:00:00&endDate=01/05/2013 00:00:00&startKey={{startKey}}&endKey={{endKey}}&keys={{keys}}&cascade=sessions",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/data/:dataSetName?startDate=01/01/2013 00:00:00&endDate=01/05/2013 00:00:00&startKey={{startKey}}&endKey={{endKey}}&keys={{keys}}&cascade=sessions",
+              "host": [ "{{base-url}}" ],
+              "path": [ "data", ":dataSetName" ],
+              "query": [],
+              "variable": [
+                {
+                  "value": "Location-A",
+                  "id": "dataSetName"
+                }
+              ]
+            },
+            "description": "#### Removes data from a particular dataset\r\nIf a range is specified, using either date range for time series data, or key range for an orderable key, then only data in that date range is removed from the dataset.\r\nOtherwise, all data is removed from the dataset."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "imports",
+      "description": "Folder for imports",
+      "item": [
+        {
+          "name": "/imports/S3",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base-url}}/imports/S3",
+              "host": [ "{{base-url}}" ],
+              "path": [ "imports", "S3" ]
+            },
+            "description": "Files in S3 can be either in CSV or JSON format (see <a href=\"http://docs.nexosis.com/guides/importingdata\" target=\"_blank\">http://docs.nexosis.com/guides/importingdata</a> for details on supported formats) \r\nas well as gzipped versions of either of these.\r\n\r\nThe following parameters are accepted in the request body (see Request Body schema for descriptions):\r\n\r\n*  dataSetName\r\n*  bucket\r\n*  path\r\n*  contentType (optional)\r\n*  region (optional)\r\n*  accesKeyId (optional)\r\n*  secretAccessKey (optional)\r\n*  columns (optional)"
+          },
+          "response": []
+        },
+        {
+          "name": "/imports/:importId",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/imports/:importId",
+              "host": [ "{{base-url}}" ],
+              "path": [ "imports", ":importId" ],
+              "variable": [
+                {
+                  "value": "f6ebc795-f7c9-4d3f-9a8c-f0fb83b032c9",
+                  "id": "importId"
+                }
+              ]
+            },
+            "description": "Retrieve information about request to import data into the Nexosis API"
+          },
+          "response": []
+        },
+        {
+          "name": "/imports?dataSetName=Location-A&requestedAfterDate=05/15/2017 00:00:00&requestedBeforeDate=06/01/2017 00:00:00&page={{page}}&pageSize={{pageSize}}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/imports?dataSetName=Location-A&requestedAfterDate=05/15/2017 00:00:00&requestedBeforeDate=06/01/2017 00:00:00&page={{page}}&pageSize={{pageSize}}",
+              "host": [ "{{base-url}}" ],
+              "path": [ "imports" ],
+              "query": []
+            },
+            "description": "Gets the list of imports that have been created for the company associated with your account."
+          },
+          "response": []
+        },
+        {
+          "name": "/imports/Url",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base-url}}/imports/Url",
+              "host": [ "{{base-url}}" ],
+              "path": [ "imports", "Url" ]
+            },
+            "description": "Urls can return either CSV or JSON content (see <a href=\"http://docs.nexosis.com/guides/importingdata\" target=\"_blank\">http://docs.nexosis.com/guides/importingdata</a> for details on supported formats)\r\n\r\nIf importing an S3 file in a public bucket, you can also send the url to that file in this parameter.  \r\n\r\nThe following parameters are accepted in the request body (see Request Body schema for descriptions):\r\n\r\n*  dataSetName\r\n*  url\r\n*  contentType (optional)\r\n*  auth (optional)\r\n*  columns (optional)"
+          },
+          "response": []
+        },
+        {
+          "name": "/imports/Azure",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base-url}}/imports/Azure",
+              "host": [ "{{base-url}}" ],
+              "path": [ "imports", "Azure" ]
+            },
+            "description": "Files in Azure Blob Storage can be either in CSV or JSON format (see <a href=\"http://docs.nexosis.com/guides/importingdata\" target=\"_blank\">http://docs.nexosis.com/guides/importingdata</a> for details on supported formats) \r\nas well as gzipped versions of either of these.  \r\n\r\nThe following parameters are accepted in the request body (see Request Body schema for descriptions):\r\n\r\n*  dataSetName\r\n*  connectionString\r\n*  container\r\n*  blob\r\n*  columns (optional)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "models",
+      "description": "Folder for models",
+      "item": [
+        {
+          "name": "/models?dataSourceName=HousingData&createdAfterDate=12/01/2016 00:00:00&createdBeforeDate=02/01/2017 00:00:00&page=0&pageSize=10",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/models?dataSourceName=HousingData&createdAfterDate=12/01/2016 00:00:00&createdBeforeDate=02/01/2017 00:00:00&page=0&pageSize=10",
+              "host": [ "{{base-url}}" ],
+              "path": [ "models" ],
+              "query": []
+            },
+            "description": "Gets the list of models that have been created for the company associated with your account."
+          },
+          "response": []
+        },
+        {
+          "name": "/models?DataSourceName=HousingData&CreatedBeforeDate=02/01/2017 00:00:00&CreatedAfterDate=12/01/2016 00:00:00",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/models?DataSourceName=HousingData&CreatedBeforeDate=02/01/2017 00:00:00&CreatedAfterDate=12/01/2016 00:00:00",
+              "host": [ "{{base-url}}" ],
+              "path": [ "models" ],
+              "query": []
+            },
+            "description": "Removes one or more models from your account"
+          },
+          "response": []
+        },
+        {
+          "name": "/models/:modelId",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/models/:modelId",
+              "host": [ "{{base-url}}" ],
+              "path": [ "models", ":modelId" ],
+              "variable": [
+                {
+                  "value": "ea7f2e6c-c4bf-45bb-9087-7889afdc1fa0",
+                  "id": "modelId"
+                }
+              ]
+            },
+            "description": "Gets detailed information for a particular model."
+          },
+          "response": []
+        },
+        {
+          "name": "/models/:modelId",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/models/:modelId",
+              "host": [ "{{base-url}}" ],
+              "path": [ "models", ":modelId" ],
+              "variable": [
+                {
+                  "value": "cc2e97a3-22b7-4886-b64f-b01658f81b40",
+                  "id": "modelId"
+                }
+              ]
+            },
+            "description": "Removes a single model from your account"
+          },
+          "response": []
+        },
+        {
+          "name": "/models/:modelId/predict",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base-url}}/models/:modelId/predict",
+              "host": [ "{{base-url}}" ],
+              "path": [ "models", ":modelId", "predict" ],
+              "variable": [
+                {
+                  "value": "624c37d4-f390-4c31-ab83-ca8fad24c0f0",
+                  "id": "modelId"
+                }
+              ]
+            },
+            "description": "Predicts target values for a set of features using a model."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "sessions",
+      "description": "Folder for sessions",
+      "item": [
+        {
+          "name": "/sessions?dataSourceName=Location&eventName={{eventName}}&modelId={{modelId}}&requestedAfterDate=05/15/2017 00:00:00&requestedBeforeDate=06/01/2017 00:00:00&page={{page}}&pageSize={{pageSize}}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/sessions?dataSourceName=Location&eventName={{eventName}}&modelId={{modelId}}&requestedAfterDate=05/15/2017 00:00:00&requestedBeforeDate=06/01/2017 00:00:00&page={{page}}&pageSize={{pageSize}}",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions" ],
+              "query": []
+            },
+            "description": "Lists the sessions that have been created for the company associated with your account"
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions?Type=impact&DataSourceName=Location-D&EventName=fall-promotion&RequestedAfterDate=05/29/2017 00:00:00&RequestedBeforeDate=05/29/2017 00:00:00",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/sessions?Type=impact&DataSourceName=Location-D&EventName=fall-promotion&RequestedAfterDate=05/29/2017 00:00:00&RequestedBeforeDate=05/29/2017 00:00:00",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions" ],
+              "query": []
+            },
+            "description": "Removes one or more sessions from your account"
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/:sessionId/results?predictionInterval={{predictionInterval}}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json, text/csv"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/sessions/:sessionId/results?predictionInterval={{predictionInterval}}",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", ":sessionId", "results" ],
+              "query": [],
+              "variable": [
+                {
+                  "value": "8f0f4bbd-375f-4e0e-a409-34f974c7f7ac",
+                  "id": "sessionId"
+                }
+              ]
+            },
+            "description": "#### Gets the results of a particular session\r\nThe results returned for a session differ based on the session type:\r\n#### Forecast sessions\r\nForecast session results consist of the predictions for the dates specified when the session was created.\r\n#### Impact sessions\r\nImpact session results consist of the predictions of what would have happened over the specified date range,\r\nhad the impactful event not occurred. Impact session results also include metrics that describe the overall\r\nimpact of the event on the data source. These metrics are:\r\n* `pValue`: Statistical value used to determine the significance of the impact. A small p-value indicates strong evidence of impact, whereas a p-value approaching 0.5 indicates weak evidence of impact.\r\n* `absoluteEffect`: Total absolute effect of the event on the data source. Answers the question, \"How much did this event affect my data source?\"\r\n* `relativeEffect`: Percentage effect of the event on the data source. Answers the question, \"By what percentage did this event affect my data source?\"\r\n#### Model sessions\r\nModel session results consist of the test set predictions generated by the model. These results can be used to determine the accuracy of the generated\r\nmodel. Use the model endpoint to generate new predictions using the model.\r\n#### Additional information\r\nIn addition to the response body indicating information about the session,\r\nthe response to this endpoint adds a `nexosis-session-status` HTTP response\r\nheader indicating the completion status of the session.\r\n            \r\nA prediction interval can be provided. It helps you quantify the uncertainty of where a value will fall a certain percentage of the time.\r\nThe available intervals for a given session are given in the `availablePredictionIntervals` property of the result.\r\nThis list should always include \"0.5\", and may include other intervals such as \"0.8\" or \"0.95\".\r\nIf you make a request without the prediction interval, the values for \"0.5\" are returned.\r\nYou can find out more about prediction intervals at this site: <a href=\"http://www.statisticshowto.com/prediction-interval/\">http://www.statisticshowto.com/prediction-interval/\"</a>."
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/:sessionId",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/sessions/:sessionId",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", ":sessionId" ],
+              "variable": [
+                {
+                  "value": "684b8831-004d-4bbc-9eb3-6c286234097f",
+                  "id": "sessionId"
+                }
+              ]
+            },
+            "description": "#### Gets a summary (including completion status) of a particular session\r\nIn addition to the response body indicating information about the session,\r\nthe response to this endpoint adds a `nexosis-session-status` HTTP response\r\nheader indicating the completion status of the session."
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/:sessionId",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/sessions/:sessionId",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", ":sessionId" ],
+              "variable": [
+                {
+                  "value": "ecacd29c-b49e-4d24-9977-5f939389cdb2",
+                  "id": "sessionId"
+                }
+              ]
+            },
+            "description": "Removes a single session from your account"
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/:sessionId",
+          "request": {
+            "method": "HEAD",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/sessions/:sessionId",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", ":sessionId" ],
+              "variable": [
+                {
+                  "value": "6acf9522-e64a-4398-b67c-cd5c2efdad5c",
+                  "id": "sessionId"
+                }
+              ]
+            },
+            "description": "#### Gets completion status of a particular session as an HTTP response header\r\nThe response to this endpoint adds a `nexosis-session-status` HTTP response\r\nheader indicating the completion status of the session."
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/impact",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base-url}}/sessions/impact",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", "impact" ]
+            },
+            "description": "#### Queues a new causal impact session to run\r\nImpact sessions are used to determine the impact of a particular event on a data source. For example, a sale at a restaurant\r\nmay impact daily sales or customer counts. To create an impact session, specify the data source for which to determine impact,\r\nas well as the start and end dates of the impactful event. The Nexosis API will execute a series of machine learning algorithms\r\nto determine the impact of the event on the data source.<br />\r\nBoth the start and end dates for the impact session must always be on or before the timeStamp of the last record in your data source.\r\n<para>\r\nSee <a href=\"http://docs.nexosis.com/guides/impactanalysis\" target=\"_blank\">http://docs.nexosis.com/guides/impactanalysis</a> for more information about creating an impact analysis session.\r\n</para><para>Note that the query string parameters to this API operation are deprecated. All parameters can be passed in the JSON body of the request.</para>"
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/forecast",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base-url}}/sessions/forecast",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", "forecast" ]
+            },
+            "description": "#### Queues a new forecast session to run\r\nForecast sessions are used to predict future values for a data source. To create a forecast session, specify the data source to forecast,\r\nas well as the start and end dates of the forecast period. The Nexosis API will execute a series of machine learning algorithms\r\nto approximate future values for the data source.<br />\r\nThe forecast start date should be on the same day as (or before) the last date in the data source.  If there is a gap between\r\nyour forecast start date and the date of the last record in your data set, the Nexosis API will behave as if there is no gap. <br /><para>\r\nSee <a href=\"http://docs.nexosis.com/guides/forecast\" target=\"_blank\">http://docs.nexosis.com/guides/forecast</a> for more information about creating a forecast session.\r\n</para><para>Note that the query string parameters to this API operation are deprecated. All parameters can be passed in the JSON body of the request.</para>"
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/model",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base-url}}/sessions/model",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", "model" ]
+            },
+            "description": "#### Queues a new model-building session to run\r\nModel-building sessions are used to build regression and classification models for later use. To build a model, specify the data source\r\nto model, and whether to build a regression model or a classification model. Once the model is built, use the various model endpoints\r\nto interact with it and generate predictions.\r\n#### Regression models\r\nRegression models are used to predict a target (dependent) variable from one or more feature (independent) variables. Regression models\r\nalways require at least one feature column, and since the output of a regression model is a continuous value, these models can only be\r\nused to predict numeric targets.\r\n#### Classification models\r\nClassification models are used to predict which of a discrete set of classes a given record represents. Like regression models, classification\r\nmodels predict a target (dependent) variable from one or more feature (independent) variables, and they require at least one feature column.\r\nUnlike regression models, the target column of a classification model can be any data type. (The target should contain relatively few\r\ndistinct values, or classes, to predict.)\r\nBy default, the Nexosis API will **balance** the data source used to build a classification model. That is, if 90% of the records in the\r\ndata source have class A and 10% have class B, the API will strive to generate a model that is equally proficient at identifying both class A\r\nand class B records. If the `extraParameters.balance` property in is set to `false`, the API will not seek to balance the data source,\r\nwhich may result in a model better at predicting class A than class B. The real-world domain of data being used to build a model should determine\r\nwhether balancing the data or not is appropriate."
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/:sessionId/results/confusionmatrix",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/sessions/:sessionId/results/confusionmatrix",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", ":sessionId", "results", "confusionmatrix" ],
+              "variable": [
+                {
+                  "value": "c91f798e-d801-45be-b371-be4a4aefd23b",
+                  "id": "sessionId"
+                }
+              ]
+            },
+            "description": "#### Gets the confusion matrix for the model generated by a model-building session\r\nA confusion matrix describes the performance of the classification model generated by this session by\r\nshowing how each record in the test set was classified by the model. The rows in the confusion matrix\r\nare actual classes from the test set, and the columns are classes predicted by the model for those rows.\r\nEach cell in the matrix contains the count of records in the test set with a particular actual value and\r\npredicted value. The headers for both rows and columns of the matrix can be found in the `classes`\r\nproperty of the response."
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/:sessionId/contest",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/sessions/:sessionId/contest",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", ":sessionId", "contest" ],
+              "variable": [
+                {
+                  "value": "b83c7c09-4fae-456c-818b-ae0d6b72df71",
+                  "id": "sessionId"
+                }
+              ]
+            },
+            "description": "#### Gets detailed data science information generated by a session\r\nDuring the execution of a session, many different algorithms can be run, in order to see which\r\nalgorithm produces the best results.  The contest information returned from this endpoint contains\r\ndetails about all of the algorithms that were attempted, which one is the champion, and various scoring\r\nmetrics which were used to determine the best algorithm.\r\n__Note:__ This endpoint is not available under the community plan.  Please [upgrade](http://nexosis.com/pricing) to a paid plan if you are currently on Community.\r\nBe sure to use the [Paid Subscription key](https://developers.nexosis.com/developer) if you have already upgraded."
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/:sessionId/contest/champion?predictionInterval={{predictionInterval}}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/sessions/:sessionId/contest/champion?predictionInterval={{predictionInterval}}",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", ":sessionId", "contest", "champion" ],
+              "query": [],
+              "variable": [
+                {
+                  "value": "8f07a308-6d0d-4ae4-a38b-81e55b6ec4a9",
+                  "id": "sessionId"
+                }
+              ]
+            },
+            "description": "#### Gets the champion of a contest, and the test data used in scoring the algorithm\r\nThis is the algorithm which was determined to score the best for the given contest.  Scoring metrics,\r\nas well as the test data, is returned.\r\n__Note:__ This endpoint is not available under the community plan.  Please [upgrade](http://nexosis.com/pricing) to a paid plan if you are currently on Community.\r\nBe sure to use the [Paid Subscription key](https://developers.nexosis.com/developer) if you have already upgraded."
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/:sessionId/contest/selection",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/sessions/:sessionId/contest/selection",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", ":sessionId", "contest", "selection" ],
+              "variable": [
+                {
+                  "value": "532ccf2d-5e48-4ef0-926a-e52948606e94",
+                  "id": "sessionId"
+                }
+              ]
+            },
+            "description": "#### Gets the selection criteria that is used to determined which algorithms were executed.\r\nThe _metricSets_ contain some information about the data source that was used by the session.  It includes\r\nsome basic stats about the dataset, such as the mean and standard deviation.  For a forecast or impact session,\r\nit will also include information about what levels of seasonality were detected in the data.\r\n__Note:__ This endpoint is not available under the community plan.  Please [upgrade](http://nexosis.com/pricing) to a paid plan if you are currently on Community.\r\nBe sure to use the [Paid Subscription key](https://developers.nexosis.com/developer) if you have already upgraded."
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/:sessionId/contest/contestants",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/sessions/:sessionId/contest/contestants",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", ":sessionId", "contest", "contestants" ],
+              "variable": [
+                {
+                  "value": "ebbaf7bd-7a2c-4596-b6fe-daec670c684b",
+                  "id": "sessionId"
+                }
+              ]
+            },
+            "description": "#### Lists the contestant algorithms which were executed for this contest.\r\n__Note:__ This endpoint is not available under the community plan.  Please [upgrade](http://nexosis.com/pricing) to a paid plan if you are currently on Community.\r\nBe sure to use the [Paid Subscription key](https://developers.nexosis.com/developer) if you have already upgraded."
+          },
+          "response": []
+        },
+        {
+          "name": "/sessions/:sessionId/contest/contestants/:contestantId?predictionInterval={{predictionInterval}}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/sessions/:sessionId/contest/contestants/:contestantId?predictionInterval={{predictionInterval}}",
+              "host": [ "{{base-url}}" ],
+              "path": [ "sessions", ":sessionId", "contest", "contestants", ":contestantId" ],
+              "query": [],
+              "variable": [
+                {
+                  "value": "a9c81a36-cd21-41ff-bd53-b07c77b279a2",
+                  "id": "sessionId"
+                },
+                {
+                  "value": "{{contestantId}}",
+                  "id": "contestantId"
+                }
+              ]
+            },
+            "description": "#### Gets a specific contestant algorithm, and the test data used in scoring the algorithm\r\nThis is one of the algorithms which were executed during a session.  Scoring metrics, as well as the test data, is returned.\r\n__Note:__ This endpoint is not available under the community plan.  Please [upgrade](http://nexosis.com/pricing) to a paid plan if you are currently on Community.\r\nBe sure to use the [Paid Subscription key](https://developers.nexosis.com/developer) if you have already upgraded."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "views",
+      "description": "Folder for views",
+      "item": [
+        {
+          "name": "/views?partialName=LocationWithHolidays&dataSetName=&page={{page}}&pageSize={{pageSize}}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/views?partialName=LocationWithHolidays&dataSetName=&page={{page}}&pageSize={{pageSize}}",
+              "host": [ "{{base-url}}" ],
+              "path": [ "views" ],
+              "query": []
+            },
+            "description": "Gets the list of view definitions that have been created"
+          },
+          "response": []
+        },
+        {
+          "name": "/views/:viewName?startDate={{startDate}}&endDate={{endDate}}&page={{page}}&pageSize={{pageSize}}&include={{include}}",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/views/:viewName?startDate={{startDate}}&endDate={{endDate}}&page={{page}}&pageSize={{pageSize}}&include={{include}}",
+              "host": [ "{{base-url}}" ],
+              "path": [ "views", ":viewName" ],
+              "query": [],
+              "variable": [
+                {
+                  "value": "{{viewName}}",
+                  "id": "viewName"
+                }
+              ]
+            },
+            "description": "See <a href=\"http://docs.nexosis.com/guides/views\" target=\"_blank\">http://docs.nexosis.com/guides/views</a> for more information."
+          },
+          "response": []
+        },
+        {
+          "name": "/views/:viewName",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "Definition of the view to create or update"
+            },
+            "url": {
+              "raw": "{{base-url}}/views/:viewName",
+              "host": [ "{{base-url}}" ],
+              "path": [ "views", ":viewName" ],
+              "variable": [
+                {
+                  "value": "LocationWithHolidays-A",
+                  "id": "viewName"
+                }
+              ]
+            },
+            "description": "<ul>\r\n  <li>See <a href=\"http://docs.nexosis.com/guides/views\" target=\"_blank\">http://docs.nexosis.com/guides/views</a> for more information about using views.</li>\r\n  <li>See <a href=\"http://docs.nexosis.com/guides/calendars\" target=\"_blank\">http://docs.nexosis.com/guides/calendars</a> for information on how calendars can be included in views.</li>\r\n</ul>"
+          },
+          "response": []
+        },
+        {
+          "name": "/views/:viewName?cascade=session",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json, text/json"
+              },
+              {
+                "key": "api-key",
+                "value": "{{api-key}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base-url}}/views/:viewName?cascade=session",
+              "host": [ "{{base-url}}" ],
+              "path": [ "views", ":viewName" ],
+              "query": [],
+              "variable": [
+                {
+                  "value": "LocationWithHolidays-A",
+                  "id": "viewName"
+                }
+              ]
+            },
+            "description": "Deletes a view definition"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "42189da5-ade5-4004-8643-47b637525b65",
+        "type": "text/javascript",
+        "exec": [ "" ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "3a645c14-f236-4f39-bee3-b5f18dce3fab",
+        "type": "text/javascript",
+        "exec": [ "" ]
+      }
+    }
+  ]
+}
