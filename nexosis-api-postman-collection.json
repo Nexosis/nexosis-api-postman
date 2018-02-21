@@ -1817,12 +1817,9 @@
               "raw": "{\r\n  \"name\": \"This is the classification model name\",\r\n  \"dataSourceName\": \"dataSourceName\",\r\n  \"targetColumn\": \"theTargetColumnNameUsedToLearnToPredict\",\r\n  \"predictionDomain\": \"classification\",\r\n  \"extraParameters\": {\r\n\t\"balance\": true\r\n  }\r\n}\r\n"
             },
             "url": {
-              "raw": "https://ml.nexosis.com/v1/sessions/model",
-              "protocol": "https",
+              "raw": "{{base-url}}/sessions/model",
               "host": [
-                "ml",
-                "nexosis",
-                "com"
+                "{{base-url}}"
               ],
               "path": [
                 "v1",
@@ -1853,12 +1850,9 @@
                   "raw": "{\r\n  \"dataSourceName\": \"titanic\",\r\n  \"targetColumn\": \"Survived\",\r\n  \"predictionDomain\": \"classification\"\r\n}\r\n"
                 },
                 "url": {
-                  "raw": "https://ml.nexosis.com/v1/sessions/model",
-                  "protocol": "https",
+                  "raw": "{{base-url}}/sessions/model",
                   "host": [
-                    "ml",
-                    "nexosis",
-                    "com"
+                    "{{base-url}}"
                   ],
                   "path": [
                     "v1",
@@ -2079,12 +2073,9 @@
             ],
             "body": {},
             "url": {
-              "raw": "https://ml.nexosis.com/v1/sessions/:sessionId",
-              "protocol": "https",
+              "raw": "{{base-url}}/sessions/:sessionId",
               "host": [
-                "ml",
-                "nexosis",
-                "com"
+                "{{base-url}}"
               ],
               "path": [
                 "v1",
@@ -2783,12 +2774,11 @@
             ],
             "body": {},
             "url": {
-              "raw": "{{base-url}}/v1/vocabulary/:id",
+              "raw": "{{base-url}}/vocabulary/:id",
               "host": [
                 "{{base-url}}"
               ],
               "path": [
-                "v1",
                 "vocabulary",
                 ":id"
               ],
