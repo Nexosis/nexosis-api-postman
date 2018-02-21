@@ -2,7 +2,7 @@
 
 This repository contains the Nexosis API Postman collection.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b1ba0cb3f82236a80fe9)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/81a4aa9c042f7253c599)
 
 Please follow this tutorial to import this [Postman Collection](https://www.getpostman.com/docs/collections).
 
