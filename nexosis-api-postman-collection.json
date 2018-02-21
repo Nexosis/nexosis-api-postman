@@ -1822,7 +1822,6 @@
                 "{{base-url}}"
               ],
               "path": [
-                "v1",
                 "sessions",
                 "model"
               ]
@@ -1855,7 +1854,6 @@
                     "{{base-url}}"
                   ],
                   "path": [
-                    "v1",
                     "sessions",
                     "model"
                   ]
@@ -2078,7 +2076,6 @@
                 "{{base-url}}"
               ],
               "path": [
-                "v1",
                 "sessions",
                 ":sessionId"
               ],
